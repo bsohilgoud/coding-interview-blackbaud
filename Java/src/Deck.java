@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Deck {
@@ -34,6 +31,18 @@ public class Deck {
             return cards.pop();
         } else {
             return null;
+        }
+    }
+
+    public void shuffle(){
+        Collections.shuffle(cards);
+    }
+
+    public void shuffle(int times){
+        if(times < 0)
+            throw new IllegalArgumentException("Invalid argument for shuffle (negative times)!!!");
+        while (times-- > 0) {
+            shuffle();
         }
     }
 }
